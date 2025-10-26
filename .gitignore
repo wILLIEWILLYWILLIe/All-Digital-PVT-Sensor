@@ -1,0 +1,16 @@
+/build/**
+
+# synthesis dir
+/synthesis/*
+!/synthesis/output_src/
+!/synthesis/output_src/**
+!/synthesis/scripts/
+!/synthesis/scripts/**
+!/synthesis/Makefile
+
+/waves/**
+
+/sim/**
+
+tb_wave.view
+tb_wave.vcd

@@ -1,0 +1,93 @@
+(DELAYFILE
+  (SDFVERSION  "OVI 3.0")
+  (DESIGN      "stageUnit")
+  (DATE        "Wed Oct 22 22:36:42 CDT 2025")
+  (VENDOR      "Cadence, Inc.")
+  (PROGRAM     "Genus(TM) Synthesis Solution")
+  (VERSION     "18.14-s037_1")
+  (DIVIDER     .)
+  (VOLTAGE     ::1.1)
+  (PROCESS     "::1.0")
+  (TEMPERATURE ::25.0)
+  (TIMESCALE   1ps)
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[0\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::20) (::10))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[1\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::13) (::8))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[2\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[3\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::10) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[4\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::10) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[5\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::10) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X8")
+     (INSTANCE invPath\[6\]\.g1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.2))
+          (IOPATH A ZN (::7) (::5))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "CLKBUF_X1")
+     (INSTANCE drc_buf_sp)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::52) (::51))
+        )
+     )
+  )
+)
