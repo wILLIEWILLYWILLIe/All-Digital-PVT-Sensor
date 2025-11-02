@@ -16,3 +16,6 @@ tb_wave.view
 tb_wave.vcd
 
 .vscode/
+
+# specific files
+/src/fo1.v

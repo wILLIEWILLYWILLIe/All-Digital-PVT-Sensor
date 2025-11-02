@@ -18,8 +18,10 @@ sim:xcelium:        运行的地方
 - 要仿真的顶层模块名，需与顶层文件名一致
 - testbench命名为，`顶层模块名_tb`
 - 源文件放在`src`， 仿真文件放在`src/tb`
+```
 | eg:
 | 顶层文件名 ： processor.v
 | 顶层模块名 ： processor
 | testbench ： processor_tb
 | tb_文件   :  processor_tb.v
+```
