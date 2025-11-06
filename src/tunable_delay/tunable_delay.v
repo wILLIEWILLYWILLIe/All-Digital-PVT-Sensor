@@ -24,8 +24,8 @@ module tunable_delay (
     // Select representative delay points as candidate taps
   
     wire cand0 = clk_in;        // shortest
-    wire cand1 = t_tap[4];      // mid transistor
-    wire cand2 = t_tap[12];     // long transistor
+    wire cand1 = t_tap[3];      // mid transistor
+    wire cand2 = t_tap[13];     // long transistor
     wire cand3 = w_tap_b;       // medium wire
     wire cand4 = w_tap_c;       // long wire
 

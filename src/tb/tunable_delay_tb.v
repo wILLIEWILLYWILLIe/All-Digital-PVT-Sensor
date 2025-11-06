@@ -35,10 +35,44 @@ module tb_tunable_delay;
     // ---------------------------------
     // Clock generator: 100MHz = 10ns period
     // ---------------------------------
-    initial begin
-        clk_in = 1'b0;
-        forever #5 clk_in = ~clk_in; // 5ns high / 5ns low
+    // initial begin
+    //     clk_in = 1'b0;
+    //     forever #5 clk_in = ~clk_in; // 5ns high / 5ns low
+    // end
+
+    // =======================================
+    // --------- Single pulse generator ------
+    // =======================================
+    task automatic send_pulse(input real high_ns);
+    begin
+        clk_in = 1'b0;  #(5.0);       
+        clk_in = 1'b1;  #(high_ns);   
+        clk_in = 1'b0;  #(20.0);     
     end
+    endtask
+    initial begin
+        tuning_bits = 5'b00000; #(20);
+
+        tuning_bits = 5'b00001; $display("[%0t] select cand0", $realtime);
+        send_pulse(1.0);   
+
+        tuning_bits = 5'b00010; $display("[%0t] select t_tap[4]", $realtime);
+        send_pulse(1.0);
+
+        tuning_bits = 5'b00100; $display("[%0t] select t_tap[8/12]", $realtime);
+        send_pulse(1.0);
+
+        tuning_bits = 5'b01000; $display("[%0t] select w_tap_b", $realtime);
+        send_pulse(1.0);
+
+        tuning_bits = 5'b10000; $display("[%0t] select w_tap_c", $realtime);
+        send_pulse(1.0);
+
+        $finish;
+    end
+    // --------- Signle pulse generator ------
+
+
 
     // ---------------------------------
     // waveform dump (for SimVision / gtkwave)
@@ -49,7 +83,7 @@ module tb_tunable_delay;
     end
 
     // ---------------------------------
-    // Stimulus: 掃 tuning_bits
+    // Stimulus: scan tuning_bits
     // ---------------------------------
     initial begin
         // Given all 0 

@@ -1,7 +1,7 @@
 (DELAYFILE
   (SDFVERSION  "OVI 3.0")
   (DESIGN      "tunable_delay")
-  (DATE        "Sun Oct 26 21:08:44 CDT 2025")
+  (DATE        "Sun Nov 02 14:09:47 CST 2025")
   (VENDOR      "Cadence, Inc.")
   (PROGRAM     "Genus(TM) Synthesis Solution")
   (VERSION     "18.14-s037_1")
@@ -32,6 +32,46 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s0.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s0.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s0.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s0.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
      (INSTANCE TDB_s1.u_inv0)
      (DELAY
         (ABSOLUTE
@@ -43,6 +83,46 @@
   (CELL
      (CELLTYPE "INV_X1")
      (INSTANCE TDB_s1.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s1.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s1.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s1.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s1.u_inv7)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -72,7 +152,7 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
-     (INSTANCE TDB_s3.u_inv0)
+     (INSTANCE TDB_s2.u_inv2)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -82,17 +162,37 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
-     (INSTANCE TDB_s3.u_inv1)
+     (INSTANCE TDB_s2.u_inv3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
-          (IOPATH A ZN (::15) (::10))
+          (IOPATH A ZN (::11) (::7))
         )
      )
   )
   (CELL
      (CELLTYPE "INV_X1")
-     (INSTANCE TDB_s4.u_inv0)
+     (INSTANCE TDB_s2.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s2.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::15) (::9))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s3.u_inv0)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -102,7 +202,107 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s3.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s3.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s3.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s3.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s3.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s4.u_inv0)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
      (INSTANCE TDB_s4.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s4.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s4.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s4.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s4.u_inv7)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -132,6 +332,46 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s5.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s5.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s5.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s5.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
      (INSTANCE TDB_s6.u_inv0)
      (DELAY
         (ABSOLUTE
@@ -143,6 +383,46 @@
   (CELL
      (CELLTYPE "INV_X1")
      (INSTANCE TDB_s6.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s6.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s6.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s6.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s6.u_inv7)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -172,6 +452,46 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s7.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s7.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s7.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s7.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
      (INSTANCE TDB_s8.u_inv0)
      (DELAY
         (ABSOLUTE
@@ -183,6 +503,46 @@
   (CELL
      (CELLTYPE "INV_X1")
      (INSTANCE TDB_s8.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s8.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s8.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s8.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s8.u_inv7)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -212,6 +572,46 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s9.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s9.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s9.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s9.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
      (INSTANCE TDB_s10.u_inv0)
      (DELAY
         (ABSOLUTE
@@ -223,6 +623,46 @@
   (CELL
      (CELLTYPE "INV_X1")
      (INSTANCE TDB_s10.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s10.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s10.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s10.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s10.u_inv7)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -246,7 +686,47 @@
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
-          (IOPATH A ZN (::15) (::9))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s11.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s11.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s11.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s11.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
         )
      )
   )
@@ -256,7 +736,7 @@
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
-          (IOPATH A ZN (::12) (::8))
+          (IOPATH A ZN (::11) (::7))
         )
      )
   )
@@ -272,7 +752,7 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
-     (INSTANCE TDB_s13.u_inv0)
+     (INSTANCE TDB_s12.u_inv2)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -282,7 +762,87 @@
   )
   (CELL
      (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s12.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s12.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s12.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::15) (::10))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s13.u_inv0)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::12) (::8))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
      (INSTANCE TDB_s13.u_inv1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s13.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s13.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s13.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s13.u_inv7)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -306,6 +866,46 @@
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s14.u_inv2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s14.u_inv3)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s14.u_inv4)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A ZN (::11) (::7))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "INV_X1")
+     (INSTANCE TDB_s14.u_inv7)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
           (IOPATH A ZN (::6) (::4))
         )
      )
@@ -322,7 +922,27 @@
   )
   (CELL
      (CELLTYPE "BUF_X1")
-     (INSTANCE WDB_seg_long0.u_buf_out)
+     (INSTANCE WDB_seg_long0.u_buf_out_1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_long0.u_buf_out_2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_long0.u_buf_out_3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -342,7 +962,27 @@
   )
   (CELL
      (CELLTYPE "BUF_X1")
-     (INSTANCE WDB_seg_long1.u_buf_out)
+     (INSTANCE WDB_seg_long1.u_buf_out_1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_long1.u_buf_out_2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_long1.u_buf_out_3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -362,7 +1002,27 @@
   )
   (CELL
      (CELLTYPE "BUF_X1")
-     (INSTANCE WDB_seg_long2.u_buf_out)
+     (INSTANCE WDB_seg_long2.u_buf_out_1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_long2.u_buf_out_2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_long2.u_buf_out_3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -382,7 +1042,27 @@
   )
   (CELL
      (CELLTYPE "BUF_X1")
-     (INSTANCE WDB_seg_med0.u_buf_out)
+     (INSTANCE WDB_seg_med0.u_buf_out_1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_med0.u_buf_out_2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_med0.u_buf_out_3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -402,7 +1082,27 @@
   )
   (CELL
      (CELLTYPE "BUF_X1")
-     (INSTANCE WDB_seg_med1.u_buf_out)
+     (INSTANCE WDB_seg_med1.u_buf_out_1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_med1.u_buf_out_2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_med1.u_buf_out_3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -422,7 +1122,27 @@
   )
   (CELL
      (CELLTYPE "BUF_X1")
-     (INSTANCE WDB_seg_short.u_buf_out)
+     (INSTANCE WDB_seg_short.u_buf_out_1)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_short.u_buf_out_2)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.0))
+          (IOPATH A Z (::20) (::24))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "BUF_X1")
+     (INSTANCE WDB_seg_short.u_buf_out_3)
      (DELAY
         (ABSOLUTE
           (PORT A (::0.0))
@@ -432,7 +1152,7 @@
   )
   (CELL
      (CELLTYPE "NAND2_X1")
-     (INSTANCE g128__8780)
+     (INSTANCE g126__8780)
      (DELAY
         (ABSOLUTE
           (PORT A1 (::0.0))
@@ -444,7 +1164,7 @@
   )
   (CELL
      (CELLTYPE "AOI222_X1")
-     (INSTANCE g129__4296)
+     (INSTANCE g127__4296)
      (DELAY
         (ABSOLUTE
           (PORT A1 (::0.0))
@@ -458,8 +1178,8 @@
           (COND (A2==1'b1)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH A1 ZN (::44) (::16)))
           (COND (A2==1'b1)&&(B1==1'b1)&&(B2==1'b0)&&(C1==1'b0)&&(C2==1'b1) (IOPATH A1 ZN (::44) (::16)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH A2 ZN (::42) (::12)))
-          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B1 ZN (::67) (::20)))
-          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B1 ZN (::67) (::20)))
+          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B1 ZN (::67) (::18)))
+          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B1 ZN (::67) (::18)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B2 ZN (::81) (::17)))
           (COND (A1==1'b0)&&(A2==1'b1)&&(B1==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B2 ZN (::64) (::16)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b0)&&(B2==1'b1)&&(C2==1'b1) (IOPATH C1 ZN (::76) (::18)))
@@ -474,8 +1194,8 @@
           (COND (A2==1'b1)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH A1 ZN (::32) (::15)))
           (COND (A1==1'b1)&&(B1==1'b1)&&(B2==1'b0)&&(C1==1'b0)&&(C2==1'b0) (IOPATH A2 ZN (::43) (::13)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b0)&&(C1==1'b1)&&(C2==1'b0) (IOPATH A2 ZN (::41) (::13)))
-          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B1 ZN (::48) (::19)))
-          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B1 ZN (::60) (::22)))
+          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B1 ZN (::48) (::18)))
+          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B1 ZN (::60) (::20)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B2 ZN (::59) (::16)))
           (COND (A1==1'b0)&&(A2==1'b0)&&(B1==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B2 ZN (::57) (::18)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b0)&&(B2==1'b0)&&(C2==1'b1) (IOPATH C1 ZN (::66) (::19)))
@@ -485,8 +1205,8 @@
           (COND (A2==1'b1)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH A1 ZN (::35) (::15)))
           (COND (A2==1'b1)&&(B1==1'b1)&&(B2==1'b0)&&(C1==1'b1)&&(C2==1'b0) (IOPATH A1 ZN (::53) (::16)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH A2 ZN (::50) (::13)))
-          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B1 ZN (::76) (::20)))
-          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B1 ZN (::58) (::19)))
+          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B1 ZN (::76) (::18)))
+          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B1 ZN (::58) (::18)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B2 ZN (::72) (::16)))
           (COND (A1==1'b0)&&(A2==1'b1)&&(B1==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B2 ZN (::72) (::16)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b1)&&(B2==1'b0)&&(C2==1'b1) (IOPATH C1 ZN (::84) (::19)))
@@ -494,15 +1214,15 @@
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b1) (IOPATH C2 ZN (::81) (::17)))
           (COND (A1==1'b0)&&(A2==1'b0)&&(B1==1'b0)&&(B2==1'b0)&&(C1==1'b1) (IOPATH C2 ZN (::55) (::21)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b0)&&(C1==1'b0)&&(C2==1'b0) (IOPATH A2 ZN (::29) (::12)))
-          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B1 ZN (::43) (::21)))
+          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B1 ZN (::43) (::20)))
           (COND (A1==1'b0)&&(A2==1'b0)&&(B1==1'b1)&&(B2==1'b0)&&(C1==1'b1) (IOPATH C2 ZN (::73) (::20)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b0)&&(B2==1'b0)&&(C1==1'b1) (IOPATH C2 ZN (::69) (::18)))
           (COND (A2==1'b1)&&(B1==1'b0)&&(B2==1'b0)&&(C1==1'b1)&&(C2==1'b0) (IOPATH A1 ZN (::36) (::16)))
           (COND (A2==1'b1)&&(B1==1'b1)&&(B2==1'b0)&&(C1==1'b0)&&(C2==1'b0) (IOPATH A1 ZN (::39) (::16)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH A2 ZN (::36) (::12)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b0)&&(C1==1'b0)&&(C2==1'b1) (IOPATH A2 ZN (::34) (::12)))
-          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B1 ZN (::55) (::19)))
-          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B1 ZN (::53) (::21)))
+          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B1 ZN (::55) (::18)))
+          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1)&&(C1==1'b0)&&(C2==1'b1) (IOPATH B1 ZN (::53) (::20)))
           (COND (A1==1'b0)&&(A2==1'b1)&&(B1==1'b1)&&(C1==1'b0)&&(C2==1'b0) (IOPATH B2 ZN (::52) (::16)))
           (COND (A1==1'b0)&&(A2==1'b0)&&(B1==1'b1)&&(C1==1'b1)&&(C2==1'b0) (IOPATH B2 ZN (::65) (::18)))
           (COND (A1==1'b0)&&(A2==1'b1)&&(B1==1'b0)&&(B2==1'b0)&&(C2==1'b1) (IOPATH C1 ZN (::59) (::19)))
@@ -512,7 +1232,7 @@
   )
   (CELL
      (CELLTYPE "AOI22_X1")
-     (INSTANCE g130__3772)
+     (INSTANCE g128__3772)
      (DELAY
         (ABSOLUTE
           (PORT A1 (::0.0))
@@ -523,14 +1243,14 @@
           (COND (A2==1'b1)&&(B1==1'b0)&&(B2==1'b1) (IOPATH A1 ZN (::24) (::10)))
           (COND (A1==1'b1)&&(B1==1'b1)&&(B2==1'b0) (IOPATH A2 ZN (::34) (::12)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b1) (IOPATH A2 ZN (::29) (::12)))
-          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1) (IOPATH B1 ZN (::41) (::17)))
-          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1) (IOPATH B1 ZN (::35) (::16)))
+          (COND (A1==1'b1)&&(A2==1'b0)&&(B2==1'b1) (IOPATH B1 ZN (::41) (::18)))
+          (COND (A1==1'b0)&&(A2==1'b1)&&(B2==1'b1) (IOPATH B1 ZN (::35) (::18)))
           (COND (A1==1'b1)&&(A2==1'b0)&&(B1==1'b1) (IOPATH B2 ZN (::43) (::15)))
           (COND (A1==1'b0)&&(A2==1'b1)&&(B1==1'b1) (IOPATH B2 ZN (::38) (::15)))
           (COND (A1==1'b0)&&(A2==1'b0)&&(B1==1'b1) (IOPATH B2 ZN (::32) (::17)))
           (COND (A2==1'b1)&&(B1==1'b0)&&(B2==1'b0) (IOPATH A1 ZN (::18) (::10)))
           (COND (A1==1'b1)&&(B1==1'b0)&&(B2==1'b0) (IOPATH A2 ZN (::22) (::12)))
-          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1) (IOPATH B1 ZN (::30) (::18)))
+          (COND (A1==1'b0)&&(A2==1'b0)&&(B2==1'b1) (IOPATH B1 ZN (::30) (::20)))
         )
      )
   )
