@@ -30,3 +30,7 @@ sim_processor: $(VSRC)/processor.v $(VSRC)/processor_tb.v
 func_sim: $(VSRC)/$(TOP).v $(TB_DIR)/$(TB).v
 	iverilog -o $(BUILD_DIR)/$(TB) $(TB_DIR)/$(TB).v $(VSRC)/*.v $(LIB_DIR)/*.v -s $(TB)
 	./$(BUILD_DIR)/$(TB)
+
+func_sim2: $(VSRC)/$(TOP).v $(TB_DIR)/$(TB).v
+	iverilog -o $(BUILD_DIR)/$(TB) $(TB_DIR)/$(TB).v $(VSRC)/*.v $(VSRC)/tunable_delay/*.v $(LIB_DIR)/*.v -s $(TB)
+	./$(BUILD_DIR)/$(TB)

@@ -56,5 +56,11 @@ module clock_gate #(
     end    
 `endif
 
-    assign gated_clk = is_gated? 1'b0: clk;
+    CLKGATETST_X1 u_icg (
+        .CK (clk), 
+        .E  (~is_gated), 
+        .SE (1'b0), 
+        .GCK(gated_clk)
+    );
+
 endmodule //clock_gate
