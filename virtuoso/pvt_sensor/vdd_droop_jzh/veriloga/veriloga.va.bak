@@ -1,0 +1,26 @@
+// VerilogA for pvt_sensor, vdd_droop_jzh, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module vdd_droop_jzh(vdd, vss);
+	inout vdd, vss;
+	electrical vdd, vss;
+	
+	parameter real VDD0= 1;
+	parameter real A= 0.1;
+	parameter real tau = 10e-9;
+	parameter real f=var_f;
+	parameter real t0=10e-9; //the starting droop time
+	real t_rel;
+
+	analog begin
+		if($abstime < t0) begin
+			V(vdd,vss)<+VDD0;
+		end else begin
+			//V(t)=VDD0-A*exp(-(t-t0)/tau)*sin(2*pi*f*(t-t0))
+			t_rel= $abstime-t0;
+			V(vdd,vss)<+VDD0-A*exp(-t_rel/tau)*sin(`M_TWO_PI*f*t_rel);
+		end
+	end
+endmodule

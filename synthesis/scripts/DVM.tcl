@@ -23,16 +23,16 @@ set Chains [get_db insts *drv*]
 puts "Found NAND: \[$Chains\]"
 set_db $Chains .dont_touch true 
 
-set_case_analysis 0 [get_ports tuning_bits[0]]
-set_case_analysis 0 [get_ports tuning_bits[1]]
-set_case_analysis 1 [get_ports tuning_bits[2]]
-set_case_analysis 1 [get_ports tuning_bits[3]]
-set_case_analysis 1 [get_ports tuning_bits[4]]
-set_case_analysis 0 [get_ports tuning_bits[5]]
-set_case_analysis 0 [get_ports tuning_bits[6]]
-set_case_analysis 0 [get_ports tuning_bits[7]]
+# set_case_analysis 0 [get_ports tuning_bits[0]]
+# set_case_analysis 0 [get_ports tuning_bits[1]]
+# set_case_analysis 1 [get_ports tuning_bits[2]]
+# set_case_analysis 1 [get_ports tuning_bits[3]]
+# set_case_analysis 1 [get_ports tuning_bits[4]]
+# set_case_analysis 0 [get_ports tuning_bits[5]]
+# set_case_analysis 0 [get_ports tuning_bits[6]]
+# set_case_analysis 0 [get_ports tuning_bits[7]]
 
-
+set_db auto_ungroup none
 # synthesis and map to target library
 syn_generic
 syn_map
@@ -46,3 +46,5 @@ report_area > ./reports/$top\_area.rpt
 
 # write netlist
 write_hdl > ./output_src/$top\_syn.v
+# write sdf
+write_sdf > ./output_src/sdf_files/$top\_syn.sdf

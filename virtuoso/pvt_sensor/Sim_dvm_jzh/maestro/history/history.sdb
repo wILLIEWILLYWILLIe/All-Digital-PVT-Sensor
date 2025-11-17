@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<setupdb version="7">history
+	<active>Active Setup</active>
+	<history>History
+		<historyentry assemblerOrExplorer="explorer" roOrView="view" runningOrFinished="finished">ExplorerRun.0
+			<timestamp>Nov 15 18:09:46 2025</timestamp>
+			<uuid>{7970adff-f80f-4072-a163-dd14f0a88876}</uuid>
+			<locked>0</locked>
+			<mode>Single Run, Sweeps and Corners</mode>
+			<resultspsfisuserpath>1</resultspsfisuserpath>
+			<resultsname>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_dvm_jzh/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>
+			<simresults>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.rdb</simresults>
+			<runlog>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_dvm_jzh/maestro/results/maestro/$AXL_HISTORY_NAME.log</runlog>
+			<runlogfile>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.log</runlogfile>
+			<psfdir>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/simulation/pvt_sensor/Sim_dvm_jzh/maestro/results/maestro/$AXL_HISTORY_NAME</psfdir>
+			<simdir>./simulation/pvt_sensor/Sim_dvm_jzh/maestro/results/maestro/$AXL_HISTORY_NAME</simdir>
+			<historyPsfSize>Not Computed</historyPsfSize>
+		</historyentry>
+	</history>
+</setupdb>

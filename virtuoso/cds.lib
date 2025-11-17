@@ -1,0 +1,5 @@
+DEFINE functional /vol/cadence2018/IC617/tools/dfII/etc/cdslib/artist/functional
+DEFINE bmslib /vol/cadence2018/IC617/tools/dfII/samples/artist/bmslib
+INCLUDE /vol/eecs391/GPDK045/gpdk045_v_6_0/cds.lib
+DEFINE gsclib045 /vol/eecs391/GPDK045/gsclib045_all_v4.8/gsclib045/oa22/gsclib045
+DEFINE pvt_sensor /home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor

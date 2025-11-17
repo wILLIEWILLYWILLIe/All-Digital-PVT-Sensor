@@ -8,9 +8,9 @@ reg clk,rst_n;
 initial begin
     clk =0;
     rst_n =0;           //reset the LFSR when the 'rst_n' = 0
-    #30 rst_n = 1;
+    #20 rst_n = 1;
 end
-always #5 clk = ~clk;   //T=10ns
+always #0.5 clk = ~clk;   //T=10ns
 
 initial begin
     $dumpfile("./waves/test_chip_tb.vcd");
@@ -23,11 +23,7 @@ wire error_leaf;
 wire gated_clk;
 wire [32-1:0] out_buff;
 
-test_chip #(
-    .TUNING_WIDTH     	(8   ),
-    .TUNING_WIDTH_LOW 	(3   ),
-    .WIDTH            	(32  ))
-u_test_chip(
+test_chip u_test_chip(
     .clk             	(clk              ),
     .rst_n           	(rst_n            ),
     .tuning_bits_trc 	(8'd12  ),
@@ -50,7 +46,7 @@ task automatic doEXE(
     input integer exe_cycles
 );
 begin
-    # (10*exe_cycles);
+    # (1*exe_cycles);
 end
 endtask //automatic
 endmodule

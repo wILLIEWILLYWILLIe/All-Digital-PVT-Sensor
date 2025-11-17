@@ -1,0 +1,6 @@
+//Verilog HDL for "pvt_sensor", "clk_gate_jzh" "functional"
+
+
+module clk_gate_jzh ( );
+
+endmodule

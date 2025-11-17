@@ -19,3 +19,9 @@ tb_wave.vcd
 
 # specific files
 /src/fo1.v
+
+#virtuoso
+/virtuoso/*
+!/virtuoso/pvt_sensor/
+!/virtuoso/pvt_sensor/**
+!/virtuoso/cds.lib

@@ -38,20 +38,20 @@ puts "Found: \[$top_insts\]"
 set_db $top_insts .ungroup_ok false    
 }
 
-set_case_analysis 0 [get_ports tuning_bits_trc[0]]
-set_case_analysis 0 [get_ports tuning_bits_trc[1]]
-set_case_analysis 1 [get_ports tuning_bits_trc[2]]
-set_case_analysis 1 [get_ports tuning_bits_trc[3]]
-set_case_analysis 1 [get_ports tuning_bits_trc[4]]
-set_case_analysis 0 [get_ports tuning_bits_trc[5]]
-set_case_analysis 0 [get_ports tuning_bits_trc[6]]
-set_case_analysis 0 [get_ports tuning_bits_trc[7]]
+# set_case_analysis 1 [get_ports tuning_bits_trc[0]]
+# set_case_analysis 1 [get_ports tuning_bits_trc[1]]
+# set_case_analysis 1 [get_ports tuning_bits_trc[2]]
+# set_case_analysis 1 [get_ports tuning_bits_trc[3]]
+# set_case_analysis 1 [get_ports tuning_bits_trc[4]]
+# set_case_analysis 0 [get_ports tuning_bits_trc[5]]
+# set_case_analysis 0 [get_ports tuning_bits_trc[6]]
+# set_case_analysis 0 [get_ports tuning_bits_trc[7]]
 
-set_case_analysis 0 [get_ports tuning_bits[0]]
-set_case_analysis 0 [get_ports tuning_bits[1]]
-set_case_analysis 1 [get_ports tuning_bits[2]]
-set_case_analysis 0 [get_ports tuning_bits[3]]
-set_case_analysis 0 [get_ports tuning_bits[4]]
+# set_case_analysis 0 [get_ports tuning_bits[0]]
+# set_case_analysis 0 [get_ports tuning_bits[1]]
+# set_case_analysis 1 [get_ports tuning_bits[2]]
+# set_case_analysis 0 [get_ports tuning_bits[3]]
+# set_case_analysis 0 [get_ports tuning_bits[4]]
 
 # synthesis and map to target library
 # if we don not set the "ungroup attribute to false", the hierarchy will miss after syn_generic
@@ -67,3 +67,6 @@ report_area > ./reports/$top\_area.rpt
 
 # write netlist
 write_hdl > ./output_src/$top\_syn.v
+
+# write sdf
+write_sdf > ./output_src/sdf_files/$top\_syn.sdf
