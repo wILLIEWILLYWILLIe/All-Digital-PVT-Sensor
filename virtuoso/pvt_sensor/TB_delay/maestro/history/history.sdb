@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<setupdb version="7">history
+	<active>Active Setup</active>
+	<history>History
+		<historyentry assemblerOrExplorer="explorer" roOrView="view" runningOrFinished="finished">ExplorerRun.0
+			<timestamp>Dec 7 15:43:36 2025</timestamp>
+			<uuid>{cd4de741-f250-4fc1-af2c-a0036138c6e6}</uuid>
+			<locked>0</locked>
+			<mode>Single Run, Sweeps and Corners</mode>
+			<resultsname>/home/gel8580/CE493_PVT/virtuoso/pvt_sensor/TB_delay/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>
+			<simresults>/home/gel8580/CE493_PVT/virtuoso/pvt_sensor/TB_delay/maestro/results/maestro/ExplorerRun.0.rdb</simresults>
+			<runlog>/home/gel8580/CE493_PVT/virtuoso/pvt_sensor/TB_delay/maestro/results/maestro/$AXL_HISTORY_NAME.log</runlog>
+			<runlogfile>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.log</runlogfile>
+			<psfdir>/home/gel8580/simulation/pvt_sensor/TB_delay/maestro/results/maestro/ExplorerRun.0</psfdir>
+			<simdir>/home/gel8580/simulation/pvt_sensor/TB_delay/maestro/results/maestro/ExplorerRun.0</simdir>
+			<historyPsfSize>Not Computed</historyPsfSize>
+		</historyentry>
+	</history>
+</setupdb>

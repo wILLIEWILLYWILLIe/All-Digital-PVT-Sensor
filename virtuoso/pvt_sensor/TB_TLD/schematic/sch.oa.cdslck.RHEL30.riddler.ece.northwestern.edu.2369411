@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      gel8580
+HostName                       riddler.ece.northwestern.edu
+ProcessIdentifier              2369411
+ProcessCreationTime_UTC        1765143195
+ProcessCreationTime_Readable   Sun Dec  7 15:33:15 2025 CST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/gel8580/CE493_PVT/virtuoso/pvt_sensor/TB_TLD/schematic/sch.oa.cdslck
+TimeEditLocked                 Sun Dec  7 19:11:25 2025 CST
