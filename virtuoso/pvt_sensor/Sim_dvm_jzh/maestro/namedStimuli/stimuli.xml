@@ -129,7 +129,7 @@
     </namedstimuli>
     <namedstimuli>
         <stimuliname>rst_n</stimuliname>
-        <timeStamp>16/11/2025;11:5:22:AM</timeStamp>
+        <timeStamp>05/12/2025;4:38:49:PM</timeStamp>
         <simStopTime>1n</simStopTime>
         <isourceResistorValue>1k</isourceResistorValue>
         <libname></libname>
@@ -176,7 +176,7 @@
                 <cdfname>td</cdfname>
                 <prompt>Delay time</prompt>
                 <datatype>string</datatype>
-                <value>10p</value>
+                <value>1p</value>
                 <defvalue></defvalue>
             </parameter>
             <parameter>

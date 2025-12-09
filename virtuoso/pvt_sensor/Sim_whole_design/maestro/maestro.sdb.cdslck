@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      jzh2008
+HostName                       nightwing.ece.northwestern.edu
+ProcessIdentifier              917063
+ProcessCreationTime_UTC        1764972006
+ProcessCreationTime_Readable   Fri Dec  5 16:00:06 2025 CST
+AppIdentifier                  /vol/cadence2018/IC231/tools/dfII/bin/64bit/virtuoso
+OSType                         lnx86
+ReasonForPlacingEditLock       
+FilePathUsedToEditLock         /home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_whole_design/maestro/maestro.sdb
+TimeEditLocked                 Sat Dec  6 23:24:28 2025 CST

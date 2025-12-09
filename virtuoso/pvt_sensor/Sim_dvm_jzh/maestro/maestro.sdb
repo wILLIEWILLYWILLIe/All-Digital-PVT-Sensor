@@ -34,6 +34,9 @@
 					<var>vdd
 						<value>1.0</value>
 					</var>
+					<var>var_f
+						<value>100e6</value>
+					</var>
 				</vars>
 			</test>
 		</tests>
@@ -53,7 +56,7 @@
 				<value>(None)</value>
 			</plottingoption>
 			<plottingoption>plottingmode
-				<value>Append</value>
+				<value>New Win</value>
 			</plottingoption>
 			<plottingoption>plottype
 				<value>None</value>
@@ -74,7 +77,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>autoplotmode
-				<value>Append</value>
+				<value>Replace</value>
 			</plottingoption>
 		</plottingoptions>
 		<exploreroptions>
@@ -82,7 +85,7 @@
 				<value>(None)</value>
 			</exploreroption>
 			<exploreroption>autoplotmode
-				<value>Append</value>
+				<value>New Win</value>
 			</exploreroption>
 		</exploreroptions>
 		<overwritehistoryname>ExplorerRun.0</overwritehistoryname>
