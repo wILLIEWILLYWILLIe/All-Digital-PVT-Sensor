@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--StateFileType saveLoadState-->
+<topLevel>
+    <SimpleProp Name="stateFileVersion" Value="@(#)$CDS: virtuoso version IC23.1-64b 09/09/2025 22:44 (cpgbld16) $" Type="string" />
+    <SimpleProp Name="currentHistory" Value="/home/jzh2008/simulation/pvt_sensor/Sim_whole_design/maestro/results/maestro/ExplorerRun.0" Type="stringValue" />
+    <SimpleProp Name="currentContext" Value="__historyDirStr__/1/pvt_sensor_Sim_whole_design_1/psf" Type="stringValue" />
+    <IndexedProp Name="resultsDirMappingList">
+        <SimpleProp Name="__resDirStr_0" Value="/home/jzh2008/simulation/pvt_sensor/Sim_whole_design/maestro/results/maestro/ExplorerRun.0/1/pvt_sensor_Sim_whole_design_1/psf" Type="stringValue" />
+    </IndexedProp>
+    <IndexedProp Name="dependentExprsList">
+        <SimpleProp Name="E0" Value='getData(&quot;/net1&quot; ?result &apos;tran)' Type="stringValue" />
+        <SimpleProp Name="E1" Value='getData(&quot;/out&quot; ?result &apos;tran)' Type="stringValue" />
+        <SimpleProp Name="E2" Value='getData(&quot;/VSS!&quot; ?result &apos;tran)' Type="stringValue" />
+        <SimpleProp Name="E3" Value='getData(&quot;/VDD!&quot; ?result &apos;tran)' Type="stringValue" />
+    </IndexedProp>
+    <IndexedProp Name="graphFileList">
+        <SimpleProp Value="whole_design.group_0.grf" Type="stringValue" />
+        <SimpleProp Value="whole_design.group_1.grf" Type="stringValue" />
+        <SimpleProp Value="whole_design.group_2.grf" Type="stringValue" />
+    </IndexedProp>
+</topLevel>
