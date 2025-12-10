@@ -1,0 +1,14 @@
+//Revision 1
+config Sim_tunable_delay_backend;
+design pvt_sensor.Sim_tunable_delay_backend:schematic;
+liblist gsclib045_tech, gsclib045, pvt_sensor;
+
+viewlist abstract, ahdl, autolayout, behavioral, cdsSpice, cmos_sch, functional, hpmns, hspiceS, libra, mharm, schematic, spectre, spectreS, symbol, system;
+stoplist spectre;
+
+
+cell pvt_sensor.tunable_delay_gel binding :av_extracted;
+cell pvt_sensor.vdd_droop_jzh binding :veriloga;
+
+
+endconfig

@@ -1,0 +1,14 @@
+//Revision 4
+config Sim_trc_jzh;
+design pvt_sensor.Sim_trc_jzh:schematic;
+liblist gsclib045, gsclib045_tech, pvt_sensor;
+
+viewlist abstract, ahdl, autolayout, behavioral, cdsSpice, cmos_sch, functional, hpmns, hspiceS, libra, mharm, schematic, spectre, spectreS, symbol, system;
+stoplist spectre;
+
+
+cell pvt_sensor.trc_jzh binding :av_extracted;
+cell pvt_sensor.vdd_droop_jzh binding :veriloga;
+
+
+endconfig

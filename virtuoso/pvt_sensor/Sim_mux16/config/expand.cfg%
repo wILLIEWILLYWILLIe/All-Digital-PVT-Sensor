@@ -1,0 +1,15 @@
+//Revision 3
+config Sim_mux16;
+design pvt_sensor.Sim_mux16:schematic;
+liblist pvt_sensor, gsclib045_tech, gsclib045;
+
+viewlist abstract, ahdl, autolayout, behavioral, cdsSpice, cmos_sch, functional, hpmns, hspiceS, libra, mharm, schematic, spectre, spectreS, symbol, system;
+stoplist spectre;
+
+
+cell pvt_sensor.mux16 binding :av_extracted;
+
+cell gsclib045.MX4X1 binding :extracted;
+
+
+endconfig

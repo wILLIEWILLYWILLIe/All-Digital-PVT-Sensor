@@ -1,0 +1,13 @@
+//Revision 1
+config Sim_8inv_jzh;
+design pvt_sensor.Sim_8inv_jzh:schematic;
+liblist gsclib045, gsclib045_tech, pvt_sensor;
+
+viewlist spectre, abstract, ahdl, autolayout, behavioral, cdsSpice, cmos_sch, functional, hpmns, hspiceS, libra, mharm, schematic, spectreS, symbol, system;
+stoplist spectre;
+
+
+cell pvt_sensor.\8inv_jzh  binding :av_extracted;
+
+
+endconfig

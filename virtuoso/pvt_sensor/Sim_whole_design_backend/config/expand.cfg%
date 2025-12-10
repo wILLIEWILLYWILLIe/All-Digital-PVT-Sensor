@@ -1,0 +1,15 @@
+//Revision 2
+config Sim_whole_design_backend;
+design pvt_sensor.Sim_whole_design_backend:schematic;
+liblist pvt_sensor, gsclib045, gsclib045_tech;
+
+viewlist abstract, ahdl, autolayout, behavioral, cdsSpice, cmos_sch, functional, hpmns, hspiceS, libra, mharm, schematic, spectre, spectreS, symbol, system;
+stoplist spectre;
+
+
+cell pvt_sensor.whole_design_gel binding :av_extracted;
+cell pvt_sensor.whole_design_backend binding :av_extracted;
+cell pvt_sensor.vdd_droop_jzh binding :veriloga;
+
+
+endconfig

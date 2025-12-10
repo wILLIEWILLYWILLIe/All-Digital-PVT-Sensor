@@ -3,17 +3,16 @@
 	<active>Active Setup</active>
 	<history>History
 		<historyentry assemblerOrExplorer="explorer" roOrView="view" runningOrFinished="finished">ExplorerRun.0
-			<timestamp>Nov 13 20:35:52 2025</timestamp>
-			<uuid>{e5983f5b-91d4-427f-b761-cd3a98558c18}</uuid>
+			<timestamp>Dec 9 10:53:01 2025</timestamp>
+			<uuid>{f484a8bc-ce0f-4e19-b600-97f2cd42ef83}</uuid>
 			<locked>0</locked>
 			<mode>Single Run, Sweeps and Corners</mode>
-			<resultspsfisuserpath>1</resultspsfisuserpath>
 			<resultsname>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_mux16/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.rdb</simresults>
 			<runlog>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_mux16/maestro/results/maestro/$AXL_HISTORY_NAME.log</runlog>
 			<runlogfile>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.log</runlogfile>
-			<psfdir>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/simulation/pvt_sensor/Sim_mux16/maestro/results/maestro/$AXL_HISTORY_NAME</psfdir>
-			<simdir>./simulation/pvt_sensor/Sim_mux16/maestro/results/maestro/$AXL_HISTORY_NAME</simdir>
+			<psfdir>/home/jzh2008/simulation/pvt_sensor/Sim_mux16/maestro/results/maestro/$AXL_HISTORY_NAME</psfdir>
+			<simdir>$AXL_PROJECT_DIR/pvt_sensor/Sim_mux16/maestro/results/maestro/$AXL_HISTORY_NAME</simdir>
 			<historyPsfSize>Not Computed</historyPsfSize>
 		</historyentry>
 	</history>
