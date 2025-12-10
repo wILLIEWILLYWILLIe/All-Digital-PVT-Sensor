@@ -25,3 +25,5 @@ tb_wave.vcd
 !/virtuoso/pvt_sensor/
 !/virtuoso/pvt_sensor/**
 !/virtuoso/cds.lib
+!/virtuoso/waves/final_report/
+!/virtuoso/waves/final_report/**
