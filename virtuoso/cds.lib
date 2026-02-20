@@ -4,4 +4,4 @@ INCLUDE /vol/eecs391/GPDK045/gpdk045_v_6_0/cds.lib
 DEFINE gsclib045 /vol/eecs391/GPDK045/gsclib045_all_v4.8/gsclib045/oa22/gsclib045
 DEFINE gsclib045_tech /vol/eecs391/GPDK045/gsclib045_all_v4.8/gsclib045_tech/oa22/gsclib045_tech
 DEFINE gpdk045_pvs /vol/eecs391/GPDK045/gpdk045_v_6_0/pvs
-DEFINE pvt_sensor /home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor
+DEFINE pvt_sensor /home/gel8580/CE493_PVT/virtuoso/pvt_sensor

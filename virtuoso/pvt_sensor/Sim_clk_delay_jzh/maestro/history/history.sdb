@@ -3,15 +3,15 @@
 	<active>Active Setup</active>
 	<history>History
 		<historyentry assemblerOrExplorer="explorer" roOrView="view" runningOrFinished="finished">ExplorerRun.0
-			<timestamp>Dec 6 12:36:42 2025</timestamp>
-			<uuid>{8532554f-7d6f-452b-9e9b-1a318e51aedf}</uuid>
+			<timestamp>Dec 10 19:09:34 2025</timestamp>
+			<uuid>{f488fc04-7862-4d63-9cf3-2c9d422c609f}</uuid>
 			<locked>0</locked>
 			<mode>Single Run, Sweeps and Corners</mode>
-			<resultsname>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>
+			<resultsname>/home/gel8580/CE493_PVT/virtuoso/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.rdb</simresults>
-			<runlog>/home/jzh2008/nu_classes/ce493/pvt_sensor/virtuoso/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME.log</runlog>
+			<runlog>/home/gel8580/CE493_PVT/virtuoso/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME.log</runlog>
 			<runlogfile>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.log</runlogfile>
-			<psfdir>/home/jzh2008/simulation/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME</psfdir>
+			<psfdir>/home/gel8580/simulation/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME</psfdir>
 			<simdir>$AXL_PROJECT_DIR/pvt_sensor/Sim_clk_delay_jzh/maestro/results/maestro/$AXL_HISTORY_NAME</simdir>
 			<historyPsfSize>Not Computed</historyPsfSize>
 		</historyentry>

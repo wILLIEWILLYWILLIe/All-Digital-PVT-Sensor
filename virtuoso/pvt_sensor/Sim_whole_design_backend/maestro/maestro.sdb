@@ -38,7 +38,7 @@
 						<value>100e6</value>
 					</var>
 					<var>var_tau
-						<value>20e-9</value>
+						<value>10e-9</value>
 					</var>
 				</vars>
 			</test>
@@ -59,7 +59,7 @@
 				<value>(None)</value>
 			</plottingoption>
 			<plottingoption>autoplotmode
-				<value>New Win</value>
+				<value>Replace</value>
 			</plottingoption>
 			<plottingoption>plottingmode
 				<value>Replace</value>
@@ -88,7 +88,7 @@
 				<value>(None)</value>
 			</exploreroption>
 			<exploreroption>autoplotmode
-				<value>New Win</value>
+				<value>Replace</value>
 			</exploreroption>
 		</exploreroptions>
 		<overwritehistoryname>ExplorerRun.0</overwritehistoryname>

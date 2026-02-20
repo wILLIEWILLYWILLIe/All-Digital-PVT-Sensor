@@ -1,0 +1,13 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Wed Dec 10 19:32:40 2025 
+Best design point: 1
+Design specs: 
+	pvt_sensor_Sim_clk_delay_jzh_1	corner	Nominal - 
+Design parameters: 
+
+ExplorerRun.0
+Number of points completed: 1
+Number of simulation errors: 0
+ExplorerRun.0 completed. 
+Current time: Wed Dec 10 19:34:01 2025 
