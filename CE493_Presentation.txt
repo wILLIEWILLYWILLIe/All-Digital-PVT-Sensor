@@ -1,0 +1,192 @@
+All-Digital PVT Sensor
+
+Presenter : Peixin Zhang
+Willie Liao
+
+Chapters
+
+｜
+02｜Top module overview
+03｜Layout & backend simulation
+04｜Conclusion
+01 Background
+
+Movitation & Problem
+P, V, T fluctuations change transistor delay
+High-frequency V_CC droops
+
+⇒ timing margin loss
+
+Traditional method: add extra safety margins
+Our approach: use real-time sensing and
+adaptation to reduce guardbands
+
+Related Work
+22 nm Adaptive Clock Distribution (JSSC 2013)
+All-digital adaptive clock distribution at 22 nm
+Tunable-length clock distribution delay (2 / 4 / 8 ns)
+Dynamic Variation Monitor (DVM) using replica critical paths
+Clock gating to avoid timing failures during VCC droops
+
+Background
+Clock-data compensation
+V_DD droops, data paths
+slow down, but the clock
+distribution also slows
+A tunable-length delay
+line lets us control how
+many cycles this
+compensation lasts.
+
+Background
+Root–Leaf Clock Spatial Delay Variation
+During a VDD droop, the root clock experiences the delay
+change first, while the leaf sees a shifted version of the
+disturbance.
+Leaf clock has additional distribution delay, it naturally
+introduces clock–data compensation across several cycles.
+DVM_ROOT detects timing failures earlier than DVM_LEAF
+
+Chap 2. Top Module Overview
+
+Module
+3 - stage pipeline
+tunable length delay
+clock gating
+transition replica chains(trc)
+dynamic variation monitor(dvm)
+Module
+
+Key Parameters
+
+Description
+
+Tunable delay
+
+0 ns / 2 ns / 4 ns / 8 ns
+
+Achieved via transistor- or
+interconnect-dominated paths
+
+TRC
+
+16 stages
+
+Rising + falling transitions
+
+Clock gate
+
+Standard-cell
+
+Glitch-free operation
+
+DVM
+
+2 TRCs + checker
+
+Generates 1-cycle-late error
+pulse
+
+dvm
+
+dvm
+The different numbers of trc1 error and trc0
+error show the impact of using two TRCs
+The first and seventh trc0 error interval,
+small Vcc droop magnitude
+no trc1 error
+The 0→1 transition is slower and more sensitive
+to Vcc droop
+the delay of trc0 becomes larger than trc1
+Dual-TRC scheme enables both transition
+polarities to be exercised and monitored
+propagates a rising transition (0→1)
+propagates a fallling transition (1→0)
+
+clock gate
+
+ICG-based clock gating eliminates glitches (comparison of AND-based)
+High-frequency Vcc-droop usually settle within 2-5 oscillation cycles
+High-frequency: 50Mhz - 333Mhz (5ns - 20ns)
+Gate the leaf clock for at least 8 cycles whenever a timing-error event occur
+mask the Vcc-droop recover phase (most dangerous)
+or gate the leaf_clock during the whole Vcc-droop period
+
+（for 200-333Mhz)
+
+tunable length delay
+
+tunable length delay
+
+making the clock-data compensation time controllable
+
+Chap 3. Layout &
+Backend Simulation
+
+Layout - trc
+
+Layout - dvm
+Separate TRCs allow
+edge-dependent droop
+sensitivity analysis
+(0→1 vs 1→0).
+
+Layout - Whole Design
+
+Simulation - 100MHz 4ns
+
+Simulation - 100MHz 2ns
+
+Simulation - 100MHz 8ns
+
+Simulation - 200MHz 4ns
+
+Simulation - 50MHz 4ns
+
+Chap 4. Conclusion
+
+Area&Power
+Total dvm area is 779 μm2 in 45nm technology.
+Competitive area scaling compared to the
+
+Our Work
+
+22nm prior work (only 2.4times larger vs.
+theoretical 4 times).
+22nm test chip
+
+Average power: 1.331mW
+
+Lesson from Backend Implementation
+Power Integrity in Custom Layout
+LVS passed, but power routing was
+too weak: narrow VDD/VSS lines
+and no mesh structure.
+Severe IR drop caused large delay
+variation across all nets in the
+design.
+How we solve the problem?
+Widening the M1/M2 rails,
+Adding Metal-3 VDD&VSS straps
+Inserting additional vias.
+
+Conclusion
+Implemented an all-digital adaptive clocking system from RTL to post-layout
+simulation.
+Tunable-length delay provided controllable clock–data compensation under droop.
+DVM with dual TRCs successfully detected VDD droops at root and leaf nodes.
+Backend work revealed power-integrity issues (IR drop), fixed by strengthening
+VDD/VSS routing.
+
+Reference
+K. A. Bowman, C. Tokunaga, T. Karnik, V. K. De, and J. W. Tschanz, “A 22 nm all-digital
+dynamically adaptive clock distribution for supply voltage droop tolerance,” IEEE
+Journal of Solid-State Circuits, vol. 48, no. 4, pp. 907–916, 2013. doi: 10 . 1109 / JSSC .
+2013 . 2237972.
+K. Bowman et al., “Dynamic variation monitor for measuring the impact of voltage
+droops on microprocessor clock frequency,” in IEEE Custom Integrated Circuits
+Conference 2010, 2010, pp. 1–4. doi: 10.1109/CICC.2010.5617415.
+
+Thanks for listening
+
+

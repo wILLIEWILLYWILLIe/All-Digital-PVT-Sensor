@@ -1,0 +1,549 @@
+Northwestern University
+Electrical Engineering
+Name: Peixin Zhang, Willie Liao
+ID: JZH2008, GEL8580
+
+December 11, 2025
+PVT Tracking Sensors
+
+CE493: Advanced Low Power Digital and
+Mixed-signal Integrated Circuit Design
+Final report
+1
+
+Topic: PVT Tracking Sensors
+
+Key Issue and Motivation
+This project focuses on the design and implementation of an all-digital PVT (Process, Voltage, and
+Temperature) tracking sensor system that supports an adaptive clock distribution network.
+The key challenge of this project is to accurately detect the process, voltage, and temperature
+(PVT) condition of the chip in real time.
+Fluctuations in PVT parameters can significantly alter transistor delay and cause timing-margin loss,
+especially under high-frequency voltage droops.
+
+Key Advantage
+An adaptive clocking system that can adjust its operation dynamically based on PVT conditions–
+particularly to compensate for high-frequency supply voltage droops– can improve performance
+and energy efficiency while ensuring safe timing operation.
+
+Key Solution Concept
+Implement a PVT-tracking sensor, either digital or analog, that provides high-fidelity tracking of
+PVT-induced delay variations. In this project, we focus on an all-digital approach using:
+• Replica-path–based delay sensing (Dynamic Variation Monitor, DVM)
+• Clock–data delay compensation through a tunable-length delay chain
+• Dynamic leaf-clock gating is achieved by asserting an eight-cycle gating window each time a
+timing-error event occurs
+The sensor aims to monitor voltage droops and timing margin variations in real time, providing
+feedback to dynamically control the clock gating mechanism.
+The design concept is inspired by the 22 nm adaptive clock distribution test chip proposed by Bowman
+et al., IEEE JSSC 2013 [1].
+
+2
+
+Background and Related Work
+
+High-frequency voltage droops (tens to hundreds of MHz) can cause timing margin loss and performance
+degradation in processors. Prior approaches such as DVFS, analog PLL modulation, and Razor-style
+timing recovery have limitations in response speed or design complexity. The work by Bowman et al.
+introduced an all-digital, dynamically adaptive clock distribution that combines:
+• Tunable-length delay chain for preventing path timing-margin degradation for multiple cycles
+1
+
+• Dynamic Variation Monitor (DVM) as an on-die voltage tracking sensor
+• Clock gating to prevent timing errors during droops
+Our project implement a similar architecture, further incorporating a dynamic clock-gating module.
+
+3
+
+Design Methodology and Innovations
+
+3.1
+
+Top Architecture Overview
+
+The proposed test system integrates the following functional blocks:
+• Tunable-Length Delay: Configurable buffer chain to adjust clock delay and simulate voltage
+sensitivity
+• DVM (Dynamic Variation Monitor): Sensor that detects Vcc droop onset and triggering
+adaptive clock gating
+• ClockGate: Clock-gating circuit controlled by the DVM output to remove clock edges that would
+otherwise degrade path timing margin
+• Pipeline3Stage: Three-stage logic pipeline with LFSR input/output for data stimulation and
+verification
+Figure 1 illustrates the overall concept of the system.
+
+(a) Test-chip block diagram
+
+(b) Tunable-length delay
+
+(c) Dynamic Variation Monitor (DVM)
+
+Figure 1: Three subfigures from Fig. 2 of [1]: the adaptive clock distribution architecture, tunable delay,
+and DVM.
+2
+
+Figure 2 illustrates a possible TRC implementation in the DMV components.
+
+Figure 2: One subfigure from Fig. 2 of [2]: one way to implement TRC
+
+3.2
+3.2.1
+
+Components Design Details
+Pipeline Processor
+
+The LFSR continuously provides random input data to the three-stage processor. Each stage of the
+processor contains 32 independent logic paths. In this design, the paths include INV chains, NAND
+chains, NOR chains, XOR chains, NAND-NOR chains, MUX-INV chains, and MUX-INV-NOR-XOR
+chains, spanning various lengths and drive strengths.
+
+Figure 3: Power-on timing diagram of the processor
+Except INV chains, other paths have multiple input ports. To prevent any single bit of the 32-bit LFSR
+from driving excessive fan-out, two 32-bit LFSRs are used in this design–one provides the input for
+the main propagation chain, while the other supplies input signals for the additional multi-input ports.
+Figure 3 shows the data propagation waveform of the three-stage pipeline after power-on, verifying the
+functional correctness of the pipeline.
+3.2.2
+
+Tunable Length Delay
+
+The implemented tunable-length delay structure follows the design principle described in the reference
+work, where a combination of transistor-dominated and interconnect-dominated paths provides
+adjustable clock distribution delays. The measured post-synthesis timing results in Figure 4 show that
+the transistor delay stages achieve approximately 2 ns and 8 ns of delay, corresponding to the medium
+and long transistor-dominated configurations in the reference design.
+To further align with the paper’s four delay configurations, the 4 ns mode will be realized through
+an interconnect-dominated path during physical design. The objective is to make this configuration
+primarily sensitive to interconnect RC delay rather than transistor switching delay, enabling distinct
+VCC -to-delay characteristics among the three modes. The key idea for implementing the interconnectdominated delay in post layout is to route the connecting net on lower metal layers with higher resistance
+and capacitance.
+3
+
+Figure 4: Measured post-synthesis skew of different tunable-delay configurations.
+In this work, the clock skew (SKEW ) is defined as the temporal difference between the rising edge of
+the input clock (clk in) and the corresponding rising edge of the delayed output clock (clk out) after
+passing through the tunable-delay path. Mathematically, it can be expressed as:
+(+)
+
+(+)
+
+SKEW = tclk out − tclk in
+(+)
+
+(+)
+
+where tclk in and tclk out denote the timestamps (in nanoseconds) of the positive-edge transitions of clk in
+and clk out, respectively.
+3.2.3
+
+Dynamic Variation Monitor
+
+Both the ROOT and LEAF clock nodes will incorporate a DVM to detect timing-margin reduction under
+supply droops. Each DVM consists of a replica critical-path delay line, two transition replica chains
+(TRCs) in Figure 2 for rise and fall edges, and a comparator that checks the captured delay against a
+programmable threshold. When the replica delay exceeds the threshold, the DVM asserts a droop detect
+pulse indicating a VCC droop event.
+During a Vcc-droop, the DVMROOT experiences the datapath delay change without clock-data compensation, while the DVMLEAF sees a shifted version of the distribution. As mentioned earlier, the
+tunable-length delay allows precise control over the timing of the clock-data compensation occurring on
+the leaf side. Figure 5 highlights the functionality of the tunable-length delay combined with DVM in
+the absence of clock gating. The duration of DVMLEAF ’s clock-data compensation extends by two more
+cycles due to the effort of controllable distribution delay. It also shows the shifted behaviors within the
+two DVM. Additionally, the DVM output passes through a two-stage synchronizer before being used
+by the adaptive clock control logic, preventing metastability.
+3.2.4
+
+Adaptive Clock Control Logic
+
+The reference paper does not implement the clock-gating module; it treats the clock gater as an off-chip
+component [1]. In contrast, our work provides a full on-chip implementation of the clock-gating module.
+The droop oscillation frequency in our work falls within the 50-333MHz range, and the CPU operates
+at 1GHz. Meanwhile, in CPU-application scenarios, high-frequency VCC droops typically settle within
+2–5 oscillation cycles. Based on this assumption, Table 1 lists the droop periods corresponding to the
+frequency range of interest.
+To handle various oscillation frequencies without incurring excessive hardware overhead, this work implements an adaptive clock-gating module. The module gates the leaf clock for at least eight CPU cycles
+whenever a timing-error event occurs.
+For high-frequency droop in the 200–333 MHz range, each oscillation cycle spans only 3–5 CPU cycles, and
+the eight-cycle gating window is triggered multiple times during a droop event, effectively ensuring that
+the leaf clock remains gated throughout the entire Vcc-droop interval. For droop frequency in the 50–200
+MHz range, where each oscillation cycle corresponds to 5–20 CPU cycles, the timing-error detector is
+4
+
+Figure 5: Vcc droop and corresponding impact on DVMLEAF /DVMROOT datapath delay, timing margin
+and clock period versus time (Without clock gate).Vcc droop frequency is 100Mhz, and clock distribution
+delay is 2ns.
+Table 1: Different settling time corresponding to different Vcc-droop frequency
+Vcc-droop f
+50Mhz
+100Mhz
+200Mhz
+333Mhz
+
+Settling Time
+40∼100 ns
+20∼50 ns
+10∼25 ns
+6∼15 ns
+
+Corresponding CPU Cycle Number
+40∼100 cycles
+20∼50 cycles
+10∼25 cycles
+6∼15 cycles
+
+repeatedly activated near the droop minima. Each activation resets the internal 8-cycle counter, allowing
+the marking window to extend and cover the most hazardous portion of the Vcc-droop recovery phase.
+In addition, the module integrates an Integrated Clock Gating (ICG) cell to drive the final clockLEAF
+signal, ensuring glitch-free clock gating.
+
+4
+
+Schematic Design and Simulation
+
+The midterm report focused on the RTL-level architecture and functional verification of the proposed
+adaptive clock distribution system. At that stage, all blocks, including the 3-stage pipeline, tunable-length
+delay, DVM, and clock-gating logic- were implemented in Verilog and verified using Xcelium.
+However, as pointed out in the instructor’s feedback, RTL simulations cannot accurately capture the
+impact of PVT variations and supply voltage droops on path delay. To correctly evaluate these effects,
+the design must be transferred into a transistor-level or standard-cell-based implementation
+within the Virtuoso environment, where post-layout parasitics and device models are available.
+In the second half of this project, we therefore adopt the following implementation flow:
+1. Synthesize the RTL using Genus to obtain a gate-level netlist based on the standard-cell library.
+2. Draw clock-gateing’s netlist into Virtuoso to create schematic views.
+3. Manully implement all other modules schematic, including the TRCs, DVM, tunable-length delay
+circuits.
+4. Model the Vcc-droop at different oscillation frequencies in Verilog-A
+
+5
+
+5. Manually refine the layout for critical nets and perform RC extraction.
+6. Run transient simulations in Spectre across multiple PVT corners and under time-varying VCC
+profiles to evaluate delay tracking and adaptive-clock behavior.
+The remainder of this section describes the schematic-level implementation and PVT simulation results
+following this flow.
+
+4.1
+
+DVM and Tunable Delay
+
+Based on the synthesized gate-level netlist from Genus, we instantiated the DVM and tunable-length delay
+blocks in Virtuoso using the standard-cell library. The replica critical-path chain, TRCs, and receiving
+flip-flops are implemented as cascaded instances of inverters, NAND, NOR, and MUX cells, matching
+the logic depth and fan-out of the RTL design. Post-layout RC extraction is enabled for the replica chain
+and the tunable-delay path, making the delay sensitive to both device and interconnect variations.
+
+Figure 6: Functional verification waveform of DVMROOT and the effects of two TRCs. Vcc droop frequency
+is 50Mhz
+When a Vcc droop occurs, the increased TRC latency causes a sampling failure in the receiving flip-flop.
+The checker module shown in Figure 1c detects this late transition and outputs an error signal in the
+following cycle. The extra cycle is used to prevent metastability, since the TRC output probably arrives
+too close to the rising edge of the clock. As illustrated in Figure 6, the timing error occurs near the bottom
+of Vcc droop (from point V1 to point V2), where the TRC delay is the longest. This does not contradict
+the expected behavior that timing failures usually appear when Vcc starts to recover. The reason is that,
+unlike the DVMLEAF , the DVMROOT receives its clock directly from the PLL and therefore dose not have
+any clock-data compenstation.
+The different numbers of trc1 error and trc0 error, in Figure 6, show the impact of using two TRCs. In
+the first and seventh trc0 error interval, the Vcc droop magnitude is relatively small, and no trc1 error is
+generated. Taking the first trc0 error as an example, trc0 propagates a rising transition (0→1), whereas
+trc1 propagates a falling one (1→0). Since the 0→1 transition is slower and more sensitive to Vcc droop,
+the delay of trc0 becomes larger than trc1 under a mild voltage reduction, leading to an earlier timingmargin error. This dual-TRC scheme enables both transition polarities to be exercised and monitored
+every cycle, without assuming a worst-case direction in advance. As a result, it improves coverage.
+The Tunable-length delay plays a significant role in converting the inherently uncontrollable clock-data
+compensation into an adjustable mechanism. Simulation in Figure 7 illustrates that the error reported
+6
+
+(a) Clock distribution delay is 1.3ns
+
+(b) Clock distribution delay is 2.7ns
+
+Figure 7: Tunable-length delay’s impact on DVMLEAF . Vcc droop frequency is 200Mhz
+by DVMLEAF is shifted by the amount of latency inserted by the tunable-delay element, relative to
+DVMROOT . This latency provides enough time for the clock gate unit to process the error signal generated
+by DVMROOT , and to shut down the clock before a timing error is triggered at DVMLEAF .
+
+4.2
+
+Adaptive Clock Control
+
+Figure 8 compares the behavior of a simple AND-based clock gate and the integrated clock-gating (ICG)
+cell. Using an AND gate to directly gate the clock courses short glitch pulses when the clk en signal
+deasserts (1to0). Because this deassertion occurs slightly after the cock edge, the AND gate still passes
+a short high-pulse of the clock, whose width is approximately the FF TCQ delay. This short pulse may
+violate the minimum high-pulse-width requirement of the leaf flip-flops and appears as a glitch on the leaf
+clock, leading to unpredictable timing behavior. The ICG cell eliminates glitches by updating the clk en
+signal only when the clock is low, ensuring that each high phase of the gated clock remains a full pulse.
+From a timing perspective, the gated clock signal therefore appears to respond one cycle later (either
+disabling or enabling the clock).
+The simulation in Figure 8b also shows that the adaptive clock-control unit gates the leaf clock for at
+least eight cycles whenever a timing-error event occurs. If additional errors occur during this interval, the
+gating window is automatically extended. This behavior is intentional: during a fast Vcc droop, timing
+errors often appear repeatedly within a short span. For reliability, the clock remains disabled when the
+Vcc droop severity is high, and it is re-enabled only after the Vcc fluctuations ease and timing errors stop
+occurring consecutively.
+
+(a) AND gate to generate clk signal
+
+(b) ICG to generate clk signal
+
+Figure 8: Comparison of AND-based and ICG-based clock gating. The functional waveform of adaptive
+clock control.
+
+7
+
+5
+
+Backend Design and Post-Layout Simulation
+
+5.1
+
+Layout
+
+This section summarizes the schematic-level structure and the final custom layout implemented in Virtuoso for the tunable-length delay, the DVM with checker logic, and the complete subsystem. All blocks were
+implemented as fully custom designs directly in Virtuoso, with both schematics and layouts hand-crafted
+to correct circuit behavior under VCC droop conditions.
+5.1.1
+
+Tunable Length Delay
+
+The tunable-length delay block consists of a cascaded buffer chain that provides a configurable clockdistribution delay. Multiple configurations (2 ns, 4 ns, and 8 ns) were realized by combining transistordominated and interconnect-dominated paths. The physical implementation is shown in Figure 9a. In the
+interconnect-based delay mode, the input and output buffers are placed far apart and the critical net is
+routed on lower metal layers to intentionally increase its RC loading.
+
+(a) Layout view of the tunable-length delay.
+
+(b) Post-layout RC-extracted delay simulation.
+
+Figure 9: Tunable-length delay implementation: (a) custom layout and (b) extracted delay behavior.
+Post-layout RC extraction verifies that the three configurations produce distinct delay values, as illustrated in Figure 9b. These extracted delays correspond to the expected compensation windows and enable
+clock–data alignment under VCC droop conditions.
+5.1.2
+
+DVM & Checker
+
+(a) Layout view of the TRC.
+
+(b) Layout view of the DVM.
+
+Figure 10: TRC and DVM layout view.
+The Dynamic Variation Monitor includes two Transition Replica Chains (TRC0 and TRC1) that generate
+controlled rising and falling transitions whose delays reflect local supply conditions. Their physical implementation is shown in Figure 10a. Rather than directly detecting timing failures at the TRC outputs,
+the DVM relies on a dedicated checker circuit that provides robust cycle-by-cycle comparison.
+8
+
+(a) Schematic of the DVM checker circuit.
+
+(b) Layout view of the Checker.
+
+Figure 11: Checker implementation in schematic and layout form.
+As illustrated in Figure 11a, the checker samples each TRC output using a reference clock edge and compares the sampled value against the expected transition. A late-arriving replica produces a mismatch,
+which is converted into a one-cycle-delayed error pulse. This pulse is then passed through a two-stage synchronizer before entering the adaptive clock controller, ensuring metastability-safe operation. Figure 10b
+and Figure 11b show the layout views of the DVM and the checker, respectively.
+5.1.3
+
+Whole Design
+
+The complete adaptive-clock subsystem integrates the tunable delay, DVM blocks, glitch-free clock gating,
+and the leaf clock distribution network as shown in Figure 12. The final layout excludes the 3-stage pipeline
+processor, focusing instead on the sensing and clock-control logic required to emulate the behavior of the
+reference 22 nm adaptive clocking test chip [1]. RC-extracted Spectre simulations confirm correct timing
+relationships between the root and leaf nodes, proper DVM triggering under various droop conditions,
+and glitch-free clock gating during adaptive operation. The layout view and its property will be shown
+and discussed in Section 6.3 for further summary.
+
+Figure 12: Schematic circuit of the whole design
+
+9
+
+5.2
+
+Post Layout Simulation
+
+To evaluate the behavior of the adaptive clocking system under different operating conditions, five transient simulations were performed across various VCC droop frequencies and tunable-delay configurations.
+The droop frequency represents the periodic supply disturbance applied to VCC , while the tunable delay
+corresponds to the programmed clock-distribution delay inserted by the adjustable buffer chain.
+Each figure includes markers on the VCC waveform to highlight one full droop period, confirming that
+the simulated VCC oscillation matches the intended droop frequency. The resulting DVM behavior, leafclock timing, and error-generation patterns clearly reflect the combined effects of droop frequency and
+clock-distribution delay.
+The following simulation cases were examined:
+• 100 MHz droop with 2 ns delay
+• 100 MHz droop with 4 ns delay
+• 100 MHz droop with 8 ns delay
+• 200 MHz droop with 4 ns delay
+• 50 MHz droop with 4 ns delay
+
+(a) 100 MHz, 2 ns delay
+
+(b) 100 MHz, 8 ns delay
+
+(c) 100 MHz, 4 ns delay
+
+Figure 13: Simulation results under 100 MHz VCC droop for three tunable-delay settings (2 ns, 4 ns, 8 ns).
+Across the five simulation cases, the measured VCC droop periods match the intended frequencies: 10 ns
+for 100 MHz, 5 ns for 200 MHz, and 20 ns for 50 MHz. These periods are annotated directly on the VCC
+waveform in each figure. The DVM error spacing and leaf-clock behavior follow these droop periods:
+higher-frequency droops generate more frequent error pulses, while lower-frequency droops produce wider
+intervals between error events.
+For a fixed droop frequency (e.g., 100 MHz) in Figure 13, increasing the tunable-delay setting from 2 ns to
+8 ns shifts the DVMLEAF error timing by several cycles, consistent with the expected increase in clock–data
+compensation. In contrast, when the tunable delay is fixed (4 ns) and only the droop frequency changes in
+Figure 14, the relative separation of error events scales directly with the VCC period, confirming correct
+system response to the applied disturbance.
+
+10
+
+(a) 200 MHz, 4 ns delay
+
+(b) 50 MHz, 4 ns delay
+
+Figure 14: Simulation results under 200 MHz and 50 MHz VCC droops, both using 4 ns tunable delay.
+
+6
+6.1
+
+Conclusion
+Comparison
+
+The extracted layout results are summarized in Table 2. Our DVM occupies 779 µm2 in 45 nm technology
+(Figure 15a). The whole design layout (Figure 15b) includes only the adaptive clocking subsystem; the
+3-stage pipeline was not implemented in layout, so a full chip-level comparison is not applicable.
+A fair DVM-level comparison shows that our design is only 2.4× larger than the 324 µm2 22 nm implementation [1], despite the expected 4× geometric scaling, demonstrating competitive area efficiency.
+
+(a) Reported DVM
+(778.86 µm2 ).
+
+area
+
+from
+
+Virtuoso
+
+layout
+
+(b) Reported whole-design area from Virtuoso layout
+(2,723.58 µm2 ).
+
+Figure 15: Area extraction results for the entire layout cellview in this work.
+Table 2: Area comparison between prior 22 nm test chip and this work (45 nm).
+Design Block
+DVM Area
+Whole Design Area
+
+22 nm Test Chip
+324 µm2
+82,060 µm2
+
+This Work (45 nm)
+779 µm2
+2,723 µm2
+
+We also extracted the average power consumption of the adaptive clocking block using ADE Explorer. The
+instantaneous supply current was multiplied by the VCC waveform and averaged over the full transient
+window, as shown in Figure 16. This yields an estimated power of approximately 1.33 mW for the DVM
+and tunable-delay subsystem under the simulated droop conditions.
+
+Figure 16: Power extraction in ADE Explorer using the averaged VCC –IDD product over the transient
+simulation.
+
+11
+
+6.2
+
+Lessons Learned
+
+Although the design passed LVS, early post-layout simulations exhibited unstable supply waveforms and
+abnormally large delay variations. As shown in Figure 17a, the initial layout used very narrow VDD/VSS
+rails and no power-mesh structure, which resulted in severe IR drop across the block.
+We strengthened the power grid by widening the rails, adding Metal-3 VDD/VSS straps, and
+inserting additional vias, as illustrated in Figure 17b. These changes eliminated the excessive delay
+variation and allowed the expected droop behavior to appear in simulation, highlighting the importance
+of power integrity even in small test structures.
+
+(a) Initial layout with narrow VDD/VSS (b) Reinforced power grid with wider
+rails and no power mesh.
+rails, Metal-3 routing, and via arrays.
+
+Figure 17: Comparison of the DVM/tunable-delay layout before and after power-grid reinforcement.
+
+6.3
+
+Conclusion
+
+This project successfully implemented an all-digital adaptive clock distribution system from schematicall
+call to post-layout verification. The tunable-length delay enabled controllable clock, data compensation,
+and the dual-TRC DVM reliably detected VDD droops at both root and leaf nodes. The adaptive clock
+controller effectively suppressed unsafe clock edges during droop events. Through this work, we not only
+reproduced the key ideas of the 22 nm adaptive clocking architecture, but also gained practical experience
+with physical design, RC extraction, and power integrity issues that critically affect timing behavior under
+PVT variation.
+
+7
+
+Expected Performance and Metrics from Midterm
+• Cycle Offset: Measure how many clock cycles of delay compensation are achieved after a droop.
+• Detection Latency: DVM response time (target: ≤2 cycles).
+• Clock Gating Efficiency: Percentage of error-prevented cycles.
+12
+
+• Area/Power Overhead: Estimated from reports.
+Table 3: Design Objectives and Evaluation Checklist
+Design Target
+Low cost
+Accurate tracking under
+PVT variation
+Fast response
+Accurate sensing result
+Integration with adaptive
+clock control
+
+8
+
+Description / Metric
+Small area and low dynamic power overhead (< 3%)
+Replica delay closely follows real critical-path delay
+(error < 5%)
+DVM detects droop and responds within one clock
+cycle (≤ 2 cycles total)
+For digital: precise timing margin detection; for analog: accurate temperature / voltage output
+Verified system-level operation of DVM + ClockGate
+under simulated droop conditions
+
+Achieved?
+✓ (only dvm area)
+✓
+✓
+✓
+✓
+
+Additional Information
+
+8.1
+
+Technology Node
+
+The design is implemented using the following technology libraries:
+• Standard Cell Library: gsclib045
+• PDK: GPDK045
+
+8.2
+
+Project Directory
+
+The majority of the Virtuoso design files are located within the virtuoso/pvt sensor directory. The
+specific paths for different users are:
+• jzh: /home/jzh2008/nu classes/ce493/pvt sensor
+• gel: /home/gel8580/CE493 PVT
+
+References
+[1]
+
+K. A. Bowman, C. Tokunaga, T. Karnik, V. K. De, and J. W. Tschanz, “A 22 nm all-digital
+dynamically adaptive clock distribution for supply voltage droop tolerance,” IEEE Journal of SolidState Circuits, vol. 48, no. 4, pp. 907–916, 2013. doi: 10.1109/JSSC.2013.2237972.
+
+[2]
+
+K. Bowman et al., “Dynamic variation monitor for measuring the impact of voltage droops on
+microprocessor clock frequency,” in IEEE Custom Integrated Circuits Conference 2010, 2010, pp. 1–
+4. doi: 10.1109/CICC.2010.5617415.
+
+13
+
+
