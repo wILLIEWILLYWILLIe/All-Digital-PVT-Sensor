@@ -4,10 +4,14 @@
 **Authors:** Peixin Zhang (JZH2008), Willie Liao (GEL8580)  
 **Date:** December 11, 2025
 
+[View Final Project Report](report/CE493_Final_Report.pdf)
+
 ## Overview
 This project implements an all-digital PVT (Process, Voltage, and Temperature) tracking sensor system designed to support an adaptive clock distribution network. The system specifically targets high-frequency supply voltage droops (50-333 MHz) that cause timing margin loss in high-performance processors.
 
 The design is inspired by the 22 nm adaptive clocking architecture (Bowman et al., JSSC 2013) and features a full custom implementation in 45nm technology (GPDK045).
+
+<img src="figures/whole_schematic.png" width="600" alt="Whole Design Schematic">
 
 ## Key Components
 
@@ -45,7 +49,17 @@ Dynamically gates the leaf clock during detected timing-error events.
     - **Schematics:** Transistor-level designs for DVM, TRCs, and Tunable Delay.
     - **Layouts:** Custom handcrafted layouts with reinforced power grids.
     - **Maestro/States:** Simulation setups for Spectre transient analysis.
+- `figures/`: Project figures and simulation waveforms for documentation.
+- `waves/`: Simulation database files (e.g., `waves.shm`) and exported data.
+- `calibre/`: Calibre DRC/LVS/PEX runset files and logs.
 - `lib/`: Technology PDK (GPDK045) and standard cell libraries (gsclib045).
+
+### Layout Insights
+<img src="figures/tld_layout.png" width="400" alt="Tunable Length Delay Layout">
+*Figure: Layout view of the tunable-length delay.*
+
+<img src="figures/whole_design_metal3.png" width="200" alt="Whole Design Layout with Metal-3 Straps">
+*Figure: Reinforced power grid with Metal-3 straps to mitigate IR drop.*
 
 ## Implementation Workflow
 1. **RTL Development:** Verilog design and functional verification via Xcelium.
@@ -61,6 +75,20 @@ Dynamically gates the leaf clock during detected timing-error events.
 | System Area | 2,723 µm² |
 | Avg. Power | ~1.33 mW |
 | Droop Freq Range | 50 MHz - 333 MHz |
+
+## Simulation Results
+The following waveforms demonstrate the adaptive clocking system's response to supply voltage droops under different configurations.
+
+### 100 MHz Droop Case
+<img src="figures/sim_100M_4ns.png" width="500" alt="100 MHz Droop, 4ns Delay">
+*Figure: Simulation result under 100 MHz VCC droop with 4 ns tunable delay.*
+
+<img src="figures/sim_100M_2ns.png" width="500" alt="100 MHz Droop, 2ns Delay">
+*Figure: Simulation result under 100 MHz VCC droop with 2 ns tunable delay.*
+
+### 200 MHz Droop Case
+<img src="figures/sim_200M_4ns.png" width="500" alt="200 MHz Droop, 4ns Delay">
+*Figure: Simulation result under 200 MHz VCC droop with 4 ns tunable delay.*
 
 ## Getting Started
 To initialize the workspace and generate necessary directories:

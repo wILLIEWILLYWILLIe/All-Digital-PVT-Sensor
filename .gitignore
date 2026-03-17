@@ -8,9 +8,9 @@
 !/synthesis/scripts/**
 !/synthesis/Makefile
 
-/waves/**
-
 /sim/**
+
+# /calibre/** 
 
 tb_wave.view
 tb_wave.vcd
