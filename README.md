@@ -95,4 +95,4 @@ To initialize the workspace and generate necessary directories:
 ```bash
 make init
 ```
-Refer to the `synthesis/Makefile` for one-click simulation and synthesis flows.
+Refer to the `synthesis/Makefile` for one-click simulation and synthesis flows. 
